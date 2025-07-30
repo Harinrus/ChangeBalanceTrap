@@ -86,7 +86,7 @@ DROSERA_PRIVATE_KEY=0x... drosera apply
 
 - Transfer more than the specified balance reduction threshold (0.03 ETH) from the target address on the Ethereum Hoodi testnet.
 
-- Wait for 1–3 blocks.
+- Wait for 1â€“3 blocks.
 
 - In the Drosera dashboard, verify that shouldRespond is true.
 
@@ -98,16 +98,16 @@ The `ChangeBalanceTrap` contract can be enhanced and extended in various ways:
 
 1. Monitoring balances various ERC-20 tokens.
 
-2. *Chain Multiple Traps Using a Unified Collector**
+2. Chain Multiple Traps Using a Unified Collector.
 Monitoring multiple addresses or assets simultaneously. Chaining multiple traps allows for a more comprehensive monitoring solution.
 
-3. *Customizable Alert Thresholds**
+3. Customizable Alert Thresholds.
 Allowing users to customize this threshold can make the contract more flexible and user-friendly.
 
-4. *Integration with Off-Chain Services**
+4. Integration with Off-Chain Services.
 To enhance the utility of the `ChangeBalanceTrap`, integrating it with off-chain services can provide additional functionality, such as sending notifications via email, SMS, or other messaging platforms.
 
-5. *Historical Data Tracking and Analytics**
+5. Historical Data Tracking and Analytics.
 Users may benefit from tracking historical balance data and analyzing trends over time. This can provide insights into spending patterns, investment performance, and risk management.
 
 ---
