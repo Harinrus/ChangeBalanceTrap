@@ -1,6 +1,6 @@
 # ChangeBalanceTrap
 
-The ChangeBalanceTrap is a smart contract designed to monitor the balance of a specified target address on the Ethereum blockchain. It implements the ITrap interface, providing functionality to collect the current balance and determine if a significant decrease has occurred. If the balance drops by a predefined threshold (0.03 ether), the contract emits an event to log the anomaly. This allows for real-time monitoring and alerting of significant balance changes, making it useful for applications that require vigilance over asset management.
+   The ChangeBalanceTrap is a smart contract designed to monitor the balance of a specified target address on the Ethereum blockchain. It implements the ITrap interface, providing functionality to collect the current balance and determine if a significant decrease has occurred. If the balance drops by a predefined threshold (0.03 ether), the contract emits an event to log the anomaly. This allows for real-time monitoring and alerting of significant balance changes, making it useful for applications that require vigilance over asset management.
 
 ---
 
@@ -31,18 +31,18 @@ The ChangeBalanceTrap is a smart contract designed to monitor the balance of a s
 ### ChangeBalanceTrap.sol
 
 1. collect()
-The collect function is designed to retrieve the current balance of a specified target address. It returns the balance encoded as a byte array, which allows for easy data transmission between functions and contracts.
+   The collect function is designed to retrieve the current balance of a specified target address. It returns the balance encoded as a byte array, which allows for easy data transmission between functions and contracts.
 
 2. shouldRespond(bytes[] calldata data)
-The shouldRespond function takes an array of bytes as input, which contains the current and previous balance data. It checks whether the balance has decreased significantly (beyond a defined threshold, in this case, 0.03 ETH).
+   The shouldRespond function takes an array of bytes as input, which contains the current and previous balance data. It checks whether the balance has decreased significantly (beyond a defined threshold, in this case, 0.03 ETH).
 This function determines whether a response is warranted based on the balance change. If the decrease exceeds the specified threshold, it returns true, indicating that the trap should be triggered. This logic is crucial for filtering out minor fluctuations and focusing on significant changes.
 
 3. checkAndLogAnomaly(bytes[] calldata data)
-The checkAndLogAnomaly function calls shouldRespond, passing the current and previous balance data. If the trap is triggered (i.e., shouldRespond returns true), it emits an AnomalyDetected event.
+   The checkAndLogAnomaly function calls shouldRespond, passing the current and previous balance data. If the trap is triggered (i.e., shouldRespond returns true), it emits an AnomalyDetected event.
 This function provides a mechanism for checking the state of the trap and logging any anomalies detected.
 
 4. event AnomalyDetected(string message)
-The AnomalyDetected event is emitted when the trap is triggered. It carries a message that indicates the nature of the anomaly detected.
+   The AnomalyDetected event is emitted when the trap is triggered. It carries a message that indicates the nature of the anomaly detected.
 ---
 
 ### LogAlertReceiver.sol
@@ -96,21 +96,21 @@ DROSERA_PRIVATE_KEY=0x... drosera apply
 
 ## Extensions
 
-The `ChangeBalanceTrap` contract can be enhanced and extended in various ways:
+   The `ChangeBalanceTrap` contract can be enhanced and extended in various ways:
 
 1. Monitoring balances various ERC-20 tokens.
 
 2. Chain Multiple Traps Using a Unified Collector.
-Monitoring multiple addresses or assets simultaneously. Chaining multiple traps allows for a more comprehensive monitoring solution.
+   Monitoring multiple addresses or assets simultaneously. Chaining multiple traps allows for a more comprehensive monitoring solution.
 
 3. Customizable Alert Thresholds.
-Allowing users to customize this threshold can make the contract more flexible and user-friendly.
+   Allowing users to customize this threshold can make the contract more flexible and user-friendly.
 
 4. Integration with Off-Chain Services.
-To enhance the utility of the `ChangeBalanceTrap`, integrating it with off-chain services can provide additional functionality, such as sending notifications via email, SMS, or other messaging platforms.
+   To enhance the utility of the `ChangeBalanceTrap`, integrating it with off-chain services can provide additional functionality, such as sending notifications via email, SMS, or other messaging platforms.
 
 5. Historical Data Tracking and Analytics.
-Users may benefit from tracking historical balance data and analyzing trends over time. This can provide insights into spending patterns, investment performance, and risk management.
+   Users may benefit from tracking historical balance data and analyzing trends over time. This can provide insights into spending patterns, investment performance, and risk management.
 
 ---
 
