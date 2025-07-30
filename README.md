@@ -88,6 +88,8 @@ DROSERA_PRIVATE_KEY=0x... drosera apply
 
 - Wait for 1–3 blocks.
 
+- In the logs of the Drosera operator, wait for the response “true”.
+
 - In the Drosera dashboard, verify that shouldRespond is true.
 
 ---
