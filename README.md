@@ -6,22 +6,22 @@ The ChangeBalanceTrap is a smart contract designed to monitor the balance of a s
 
 ## Objectives
 
-- Monitors the ETH Balance of a Specific Wallet: 
+- _Monitors the ETH Balance of a Specific Wallet:_ 
 The ChangeBalanceTrap contract continuously observes the balance of a designated Ethereum address. This monitoring is crucial for applications that require real-time awareness of asset changes, especially in scenarios involving significant financial transactions or potential security risks.
 
-- Triggers a Response When the Balance Decrease Exceeds a Given Threshold (0.03 ETH): 
+- _Triggers a Response When the Balance Decrease Exceeds a Given Threshold (0.03 ETH):_ 
 The contract is programmed to activate a response mechanism when it detects that the balance of the monitored address has decreased by more than 0.03 ETH. This threshold is set to ensure that only significant changes trigger alerts, reducing noise from minor fluctuations. The ability to customize this threshold allows users to tailor the trap's sensitivity to their specific needs.
 
-- Utilizes the collect() / shouldRespond() Interface: 
+- _Utilizes the collect() / shouldRespond() Interface:_ 
 The contract implements the collect() function to retrieve the current balance of the target address and the shouldRespond() function to evaluate whether the balance change warrants a response. This design follows a clear interface pattern, promoting modularity and ease of integration with other components of the system. The separation of data collection and response logic enhances maintainability and clarity.
 
-- Integrates with the Notification Contract to Handle Responses: 
+- _Integrates with the Notification Contract to Handle Responses:_ 
 Upon detecting a significant balance decrease, the ChangeBalanceTrap contract interacts with a notification contract (e.g., LogAlertReceiver) to log the anomaly. This integration ensures that alerts are systematically recorded on the blockchain, providing a transparent and immutable audit trail of significant events. The logging mechanism can be used for further analysis, reporting, or triggering additional automated actions in response to the detected anomaly.
 
-- Facilitates Real-Time Monitoring and Alerting: 
+- _Facilitates Real-Time Monitoring and Alerting:_ 
 By continuously monitoring the balance and triggering alerts based on predefined criteria, the ChangeBalanceTrap enables users to respond swiftly to potential issues, such as unauthorized withdrawals or unexpected market movements. This proactive approach to asset management is essential for maintaining security and ensuring that users can take timely action when necessary.
 
-- Supports Customization and Scalability: 
+- _Supports Customization and Scalability:_ 
 The design of the ChangeBalanceTrap allows for easy customization of parameters, such as the target address and the threshold for balance changes. This flexibility makes it suitable for various use cases, from personal asset monitoring to institutional risk management. Additionally, the architecture supports scalability, enabling the integration of multiple traps or additional monitoring features as needed.
 
 ---
@@ -30,18 +30,18 @@ The design of the ChangeBalanceTrap allows for easy customization of parameters,
 
 ### ChangeBalanceTrap.sol
 
-1. collect()
+1. _collect()_
 The collect function is designed to retrieve the current balance of a specified target address. It returns the balance encoded as a byte array, which allows for easy data transmission between functions and contracts.
 
-2. shouldRespond(bytes[] calldata data)
+2. _shouldRespond(bytes[] calldata data)_
 The shouldRespond function takes an array of bytes as input, which contains the current and previous balance data. It checks whether the balance has decreased significantly (beyond a defined threshold, in this case, 0.03 ETH).
 This function determines whether a response is warranted based on the balance change. If the decrease exceeds the specified threshold, it returns true, indicating that the trap should be triggered. This logic is crucial for filtering out minor fluctuations and focusing on significant changes.
 
-3. checkAndLogAnomaly(bytes[] calldata data)
+3. _checkAndLogAnomaly(bytes[] calldata data)_
 The checkAndLogAnomaly function calls shouldRespond, passing the current and previous balance data. If the trap is triggered (i.e., shouldRespond returns true), it emits an AnomalyDetected event.
 This function provides a mechanism for checking the state of the trap and logging any anomalies detected.
 
-4. event AnomalyDetected(string message)
+4. _event AnomalyDetected(string message)_
 The AnomalyDetected event is emitted when the trap is triggered. It carries a message that indicates the nature of the anomaly detected.
 ---
 
@@ -98,18 +98,18 @@ DROSERA_PRIVATE_KEY=0x... drosera apply
 
    The `ChangeBalanceTrap` contract can be enhanced and extended in various ways:
 
-1. Monitoring balances various ERC-20 tokens.
+1. _Monitoring balances various ERC-20 tokens._
 
-2. Chain Multiple Traps Using a Unified Collector.
+2. _Chain Multiple Traps Using a Unified Collector._
 Monitoring multiple addresses or assets simultaneously. Chaining multiple traps allows for a more comprehensive monitoring solution.
 
-3. Customizable Alert Thresholds.
+3. _Customizable Alert Thresholds._
 Allowing users to customize this threshold can make the contract more flexible and user-friendly.
 
-4. Integration with Off-Chain Services.
+4. _Integration with Off-Chain Services._
 To enhance the utility of the `ChangeBalanceTrap`, integrating it with off-chain services can provide additional functionality, such as sending notifications via email, SMS, or other messaging platforms.
 
-5. Historical Data Tracking and Analytics.
+5. _Historical Data Tracking and Analytics._
 Users may benefit from tracking historical balance data and analyzing trends over time. This can provide insights into spending patterns, investment performance, and risk management.
 
 ---
