@@ -60,11 +60,13 @@ The AnomalyDetected event is emitted when the trap is triggered. It carries a me
 forge create src/ChangeBalanceTrap.sol:ChangeBalanceTrap \
   --rpc-url https://ethereum-hoodi-rpc.publicnode.com \
   --private-key 0x...
+  --broadcast
 ```
 ```
 forge create src/LogAlertReceiver.sol:LogAlertReceiver \
   --rpc-url https://ethereum-hoodi-rpc.publicnode.com \
   --private-key 0x...
+  --broadcast
 ```
 
 2. ## Update drosera.toml 
@@ -119,5 +121,6 @@ Users may benefit from tracking historical balance data and analyzing trends ove
 Author: Harinrus
 
 Created: 31 July 2025
+
 
 
