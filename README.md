@@ -57,7 +57,7 @@ The AnomalyDetected event is emitted when the trap is triggered. It carries a me
 
 1. ## Compile Contracts via Foundry 
 ```
-forge create src/VolumeSpikeTrap.sol:VolumeSpikeTrap \
+forge create src/ChangeBalanceTrap.sol:ChangeBalanceTrap \
   --rpc-url https://ethereum-hoodi-rpc.publicnode.com \
   --private-key 0x...
 ```
@@ -70,7 +70,7 @@ forge create src/LogAlertReceiver.sol:LogAlertReceiver \
 2. ## Update drosera.toml 
 ```
 [traps.mytrap]
-path = "out/VolumeSpikeTrap.sol/VolumeSpikeTrap.json"
+path = "out/ChangeBalanceTrap.sol/ChangeBalanceTrap.json"
 response_contract = "<LogAlertReceiver address>"
 response_function = "logAnomaly(string)"
 ```
@@ -119,4 +119,5 @@ Users may benefit from tracking historical balance data and analyzing trends ove
 Author: Harinrus
 
 Created: 31 July 2025
+
 
